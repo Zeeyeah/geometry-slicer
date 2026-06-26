@@ -1,0 +1,38 @@
+{
+	"name": "vanilla-template",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"preview": "vite preview",
+		"check": "prettier . --check",
+		"format": "prettier . --write"
+	},
+	"dependencies": {
+		"cannon": "^0.6.2",
+		"glsl-easings": "^1.0.0",
+		"glslify": "^7.1.1",
+		"gsap": "^3.13.0",
+		"lil-gui": "^0.19.1",
+		"n8ao": "1.10.1",
+		"nanoevents": "^9.0.0",
+		"postprocessing": "^6.37.3",
+		"stats-gl": "^2.0.1",
+		"three": "^0.179.1",
+		"virtual-scroll": "^2.2.1",
+		"vite-plugin-glslify": "^2.3.0",
+		"zustand": "^4.4.7"
+	},
+	"devDependencies": {
+		"@types/cannon": "^0.1.13",
+		"@types/node": "^20.10.7",
+		"@types/three": "^0.179.0",
+		"@types/virtual-scroll": "^2.0.3",
+		"prettier": "3.1.1",
+		"typescript": "^5.2.2",
+		"vite": "^5.0.8",
+		"vite-plugin-glsl": "^1.2.1"
+	}
+}
