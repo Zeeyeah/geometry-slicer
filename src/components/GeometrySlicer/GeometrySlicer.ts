@@ -76,7 +76,6 @@ export class GeometrySlicer {
     }
 
   public reset() {
-    // Remove all meshes from the scene
     const meshesToRemove: THREE.Object3D[] = [];
 
     this.gl.scene.traverse((child) => {
@@ -103,6 +102,20 @@ export class GeometrySlicer {
     });
 
     this.gl.scene.add(modelClone);
+
+}
+public clear() {
+    const meshesToRemove: THREE.Object3D[] = [];
+
+    this.gl.scene.traverse((child) => {
+        if (child instanceof THREE.Mesh) {
+            meshesToRemove.push(child);
+        }
+    });
+
+    meshesToRemove.forEach((mesh) => {
+        mesh.parent?.remove(mesh);
+    });
 
 }
 }

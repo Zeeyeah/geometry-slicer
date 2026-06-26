@@ -12,37 +12,28 @@
 			<h2>Geometry Slicer</h2>
 			<div>
 				<p>Select a model</p>
-			<div class="model-selector">
-				<div class="model-card">
-					<img src="/public/Suzzane.png" />
-				</div>
-				<div class="model-card">
-										<img src="/public/Cube.png" />
-
-				</div>
-				<div class="model-card">
-										<img src="/public/Torus.png" />
-
+				<div class="model-selector">
+					<div class="model-card">
+						<img src="/public/Suzzane.png" />
+					</div>
+					<div class="model-card">
+						<img src="/public/Cube.png" />
+					</div>
+					<div class="model-card">
+						<img src="/public/Torus.png" />
+					</div>
 				</div>
 			</div>
-			</div>
-			
+
 			OR
 			<div class="import-model">
-				<input
-					id="model-upload"
-					type="file"
-					accept=".glb,.gltf"
-					hidden
-				/>
+				<input id="model-upload" type="file" accept=".glb,.gltf" hidden />
 
 				<label for="model-upload" class="dropzone">
-					        <div class="dropzone-content">
-            <p class="upload-title">Drag & Drop GLTF/GLB</p>
-            <span class="upload-subtitle">
-                or click to browse
-            </span>
-        </div>
+					<div class="dropzone-content">
+						<p class="upload-title">Drag & Drop GLTF/GLB</p>
+						<span class="upload-subtitle"> or click to browse </span>
+					</div>
 				</label>
 			</div>
 			<button disabled class="start-button">Start</button>
@@ -50,29 +41,29 @@
 		<div class="canvas-bg"></div>
 		<canvas id="webgl"></canvas>
 		<div class="ui-overlay">
-	<div class="top-bar">
-	<select class="model-select">
-		<option value="" disabled selected>Select a model</option>
-		<option value="suzanne">Suzanne</option>
-		<option value="cube">Cube</option>
-		<option value="torus">Torus</option>
-	</select>
+			<div class="top-bar">
+				<select class="model-switch">
+					<option value="" disabled selected>Select a model</option>
+					<option value="model-0">Suzanne</option>
+					<option value="model-1">Cube</option>
+					<option value="model-2">Torus</option>
+				</select>
 
-	<span>OR</span>
+				<span>OR</span>
 
-	<input
-		id="model-upload"
-		type="file"
-		accept=".glb,.gltf"
-	/>
-</div>
+				<input id="model-upload-switch" type="file" accept=".glb,.gltf" />
+			</div>
 
-	<div class="bottom-bar">
-		<button class="tool-btn drag-btn active">Drag</button>
-		<button class="tool-btn cut-btn">Cut</button>
-		<button class="tool-btn reset-btn">Reset</button>
-	</div>
-</div>
+			<div class="bottom-bar">
+				<div class="tool-btn-container">
+					<button class="tool-btn drag-btn active">Drag</button>
+					<button class="tool-btn cut-btn">Cut</button>
+					<button class="tool-btn reset-btn">Reset</button>
+				</div>
+				<div class="tip">tip: hold alt to cut in drag mode</div>
+
+			</div>
+		</div>
 		<script type="module" src="/src/main.ts"></script>
 	</body>
 </html>

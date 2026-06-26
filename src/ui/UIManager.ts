@@ -21,6 +21,8 @@ export class UIManager {
 		const startBtn = document.querySelector('.start-button')!;
 
 		const fileInput = document.querySelector('.import-model input') as HTMLInputElement;
+		const fileInputSwitch = document.querySelector('#model-upload-switch') as HTMLInputElement;
+		const modelSwitch = document.querySelector('.model-switch') as HTMLSelectElement;
 		const dropzone = document.querySelector('.dropzone') as HTMLElement;
 
 		const uploadTitle = document.querySelector('.upload-title')!;
@@ -34,6 +36,7 @@ export class UIManager {
 				card.classList.add('active');
 
 				this.selectedModel = `model-${index}`;
+				modelSwitch.value = this.selectedModel;
 				this.uploadedFile = null;
 
 				uploadTitle.textContent = 'Drag & Drop GLTF/GLB';
@@ -41,6 +44,15 @@ export class UIManager {
 
 				this.updateStartButton();
 			});
+		});
+
+		modelSwitch.addEventListener('change', (e) => {
+			const target = e.target as HTMLSelectElement;
+			this.selectedModel = target.value;
+			modelSwitch.value = this.selectedModel;
+			this.uploadedFile = null;
+			this.slicer.clear();
+			this.slicer.loadDefaultModel(this.selectedModel);
 		});
 
 		dropzone.addEventListener('dragover', (e) => {
@@ -86,6 +98,18 @@ export class UIManager {
 			uploadSubtitle.textContent = `${(file.size / 1024 / 1024).toFixed(2)} MB`;
 
 			this.updateStartButton();
+		});
+
+		fileInputSwitch.addEventListener('change', (e) => {
+			this.slicer.clear();
+			const target = e.target as HTMLInputElement;
+
+			if (!target.files?.length) return;
+
+			const file = target.files[0];
+			modelSwitch.value = '';
+			this.slicer.loadUploadedModel(file);
+
 		});
 
 		startBtn.addEventListener('click', () => {

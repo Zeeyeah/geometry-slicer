@@ -48,7 +48,7 @@ body {
 	width: 100%;
 	height: 100%;
 	background-color: var(--bg);
-	background-image: radial-gradient(circle, rgb(48, 48, 48) 0.8px, transparent 0.8px);
+	background-image: radial-gradient(circle, rgb(62, 62, 62) 0.8px, transparent 0.8px);
 	background-size: 24px 24px;
 
 }
@@ -233,8 +233,8 @@ body {
 	font-size: 0.95rem;
 }
 
-.model-select,
-#model-upload {
+.model-switch,
+#model-upload-switch {
 	background: var(--bg);
 	color: var(--text);
 	border: 1px solid var(--border);
@@ -245,27 +245,27 @@ body {
 	transition: border-color 0.2s ease, background 0.2s ease;
 }
 
-.model-select {
+.model-switch {
 	cursor: pointer;
 	min-width: 180px;
 }
 
-.model-select:hover,
-#model-upload:hover {
+.model-switch:hover,
+#model-upload-switch:hover {
 	border-color: #555;
 }
 
-.model-select:focus,
-#model-upload:focus {
+.model-switch:focus,
+#model-upload-switch:focus {
 	border-color: #6ea8fe;
 }
 
-.model-select option {
+.model-switch option {
 	background: var(--panel);
 	color: var(--text);
 }
 
-#model-upload::file-selector-button {
+#model-upload-switch::file-selector-button {
 	background: var(--panel);
 	color: var(--text);
 	border: 1px solid var(--border);
@@ -276,7 +276,7 @@ body {
 	transition: background 0.2s ease;
 }
 
-#model-upload::file-selector-button:hover {
+#model-upload-switch::file-selector-button:hover {
 	background: #333;
 }
 .bottom-bar {
@@ -288,6 +288,9 @@ body {
 	transform: translateX(-50%);
 
 	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 	gap: 10px;
 
 	padding: 10px;
@@ -321,6 +324,15 @@ body {
 	color: black;
 }
 
+.tool-btn-container {
+	display: flex;
+	gap: 10px;
+}
+
 .hidden {
 	display: none;
+}
+.tip {
+	font-size: 0.85rem;
+	color: #a0a0a0;
 }
